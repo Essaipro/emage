@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)https://neocities.org/dashboard# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Neocities - Dashboard</title>
+
+    
+
+<link rel="canonical" href="https://neocities.org/dashboard">
+
+<meta property="og:title" content="Neocities">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://neocities.org/img/neocities-front-screenshot.jpg">
+
+<link rel="icon" type="image/x-icon" href="https://neocities.org/img/favicon.png">
+
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+
+
+
+    <link href="./Neocities - Dashboard_files/neo.css" rel="stylesheet" type="text/css" media="all">
+
+      <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+      <meta http-equiv="Pragma" content="no-cache">
+      <meta http-equiv="Expires" content="0">
+
+    <script src="./Neocities - Dashboard_files/jquery-1.11.0.min.js.télécharger"></script>
+
+    <script src="./Neocities - Dashboard_files/highlight.min.js.télécharger"></script>
+    <link rel="stylesheet" href="./Neocities - Dashboard_files/tomorrow-night.css">
+    <script>
+      hljs.highlightAll()
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var eventDateElements = document.querySelectorAll('.local-date-title');
+        eventDateElements.forEach(function(element) {
+          var timestamp = element.getAttribute('data-timestamp');
+          var date = dayjs.unix(timestamp);
+          var formattedDate = date.format('MMMM D, YYYY [at] h:mm A');
+          element.title = formattedDate;
+        });
+      });
+    </script>
+  </head>
+
+  <body class="interior">
+    <div class="page">
+      <header class="header-Base">
+
+  <nav class="header-Nav clearfix" role="navigation">
+
+    <a href="https://neocities.org/dashboard#!" title="show small screen nav" class="small-Nav">
+      <img src="./Neocities - Dashboard_files/nav-Icon.png" alt="navigation icon">
+    </a>
+
+    <ul class="h-Nav constant-Nav">
+        <li>
+    <a href="https://neocities.org/browse" id="browse-link">Websites</a>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const browseLink = document.getElementById('browse-link');
+
+        if (window.location.pathname === '/browse') {
+          const params = new URLSearchParams(window.location.search);
+          const persistParams = new URLSearchParams();
+          const validPattern = /^[a-zA-Z0-9 ]+$/;
+
+          ['sort_by', 'tag'].forEach(key => {
+            if (params.has(key)) {
+              const value = params.get(key);
+              if (value.length <= 25 && validPattern.test(value)) {
+                persistParams.set(key, value);
+              }
+            }
+          });
+
+          localStorage.setItem('browseQuery', persistParams.toString());
+        }
+
+        const savedQuery = localStorage.getItem('browseQuery');
+
+        if (savedQuery) {
+          browseLink.href = `/browse?${savedQuery}`;
+        }
+      });
+    </script>
+  </li>
+  <li>
+    <a href="https://neocities.org/activity">Activity</a>
+  </li>
+  <li>
+    <a href="https://neocities.org/tutorials">Learn</a>
+  </li>
+
+      <li>
+        <a href="https://neocities.org/supporter">Upgrade to Supporter<i class="fa fa-heart"><i class="fa fa-heart"></i></i></a>
+      </li>
+
+    </ul>
+
+    <ul class="status-Nav">
+        <li class="dropdown">
+          <a href="https://neocities.org/dashboard#" data-toggle="dropdown" class="dropdown-toggle">
+            essaipro
+            <span class="info">
+              <i class="fa fa-caret-down"></i>
+            </span>
+          </a>
+          <ul class="dropdown-menu">
+              <li><a href="https://neocities.org/site/essaipro">Profile</a></li>
+              <li>
+                <a href="https://neocities.org/?activity=mine"><span class="float-Left">Activity</span>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="https://neocities.org/dashboard">Edit</a></li>
+            <li><a href="https://essaipro.neocities.org/" target="_blank">View</a></li>
+            <li><a href="https://neocities.org/site/essaipro/stats">Stats</a></li>
+            <li class="divider"></li>
+            <li><a href="https://neocities.org/settings">Settings</a></li>
+
+
+
+            <li><a href="https://neocities.org/dashboard#" onclick="$(&#39;#signoutForm&#39;).submit()">Sign Out</a></li>
+            <form id="signoutForm" method="POST" action="https://neocities.org/signout" style="display: none">
+              <input name="csrf_token" type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=">
+            </form>
+          </ul>
+        </li>
+
+      </ul>
+  </nav>
+
+  <div class="logo int-Logo">
+    <a href="https://neocities.org/" title="back to home">
+      <span class="hidden">Neocities.org</span>
+      <img src="./Neocities - Dashboard_files/cat.png" alt="Neocities.org">
+    </a>
+  </div>
+</header>
+
+      <script src="./Neocities - Dashboard_files/dropzone-min.js.télécharger"></script>
+<style>
+  .dz-default {
+    display: none;
+  }
+  .dz-preview {
+    display: none;
+  }
+  .dz-processing {
+    display: none;
+  }
+  .dz-error {
+    display: none;
+  }
+  .dz-image-preview {
+    display: none;
+  }
+</style>
+<div class="header-Outro with-site-image dashboard">
+  <div class="row content wide">
+    <div class="col col-50 signup-Area">
+      <div class="signup-Form">
+  	  <fieldset class="content">
+        <a href="https://essaipro.neocities.org/" class="screenshot dashboard" style="background-image:url(/site_screenshots/36/84/essaipro/index.html.540x405.webp);"></a>
+	    </fieldset>
+      </div>
+    </div>
+
+	<div class="col col-50">
+    <h2 class="eps">emage</h2>
+    <p class="site-url">
+      <a href="https://essaipro.neocities.org/" target="_blank">essaipro.neocities.org</a>
+      <a href="https://neocities.org/dashboard#" id="shareButton" class="btn-Action" data-container="body" data-toggle="popover" data-placement="bottom" data-content="&lt;a href=&quot;/site/essaipro.rss&quot; target=&quot;_blank&quot;&gt;&lt;span&gt;RSS Feed&lt;/span&gt;&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://facebook.com/sharer.php?u=https%3A%2F%2Fessaipro.neocities.org&quot; target=&quot;_blank&quot;&gt;Facebook&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://bsky.app/intent/compose?text=emage%3A+https%3A%2F%2Fessaipro.neocities.org&quot; target=&quot;_blank&quot;&gt;Bluesky&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://twitter.com/intent/tweet?text=emage%3A+https%3A%2F%2Fessaipro.neocities.org&quot; target=&quot;_blank&quot;&gt;Twitter&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://www.reddit.com/submit?title=emage&amp;url=https%3A%2F%2Fessaipro.neocities.org&quot; target=&quot;_blank&quot;&gt;Reddit&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://www.tumblr.com/share?v=3&amp;u=https%3A%2F%2Fessaipro.neocities.org&amp;t=emage&quot; target=&quot;_blank&quot;&gt;Tumblr&lt;/a&gt;
+&lt;br&gt;
+&lt;a href=&quot;https://toot.kytta.dev/?text=emage%3A+https%3A%2F%2Fessaipro.neocities.org&quot; target=&quot;_blank&quot;&gt;Mastodon&lt;/a&gt;
+" data-original-title="" title=""><i class="fa fa-share-alt"></i> <span>Share</span></a>
+    </p>
+	<ul>
+      <li>Last updated <strong class="local-date-title" data-timestamp="1773249903" title="March 11, 2026 at 11:25 AM">2 days ago</strong></li>
+    <li>Using <strong>0.0% (29.48 KB)</strong> of your <strong>1 GB</strong> storage.
+    <br>
+    </li><li>
+      Used 37.14 KB of bandwidth this month.
+      <br>
+      Need more space? <a href="https://neocities.org/supporter">Become a Supporter!</a>
+    </li>
+	</ul>
+	</div>
+
+  </div> <!-- end .row -->
+</div> <!-- end .header-Outro -->
+
+<main class="content-Base" role="main">
+
+<div class="content wide">
+
+
+  <div id="alertDialogue" class="alert alert-block alert-success" style="display: none; max-height: 200px; overflow-y: auto;"></div>
+
+<div id="filesDisplay" class="files">
+  <div id="uploadingOverlay" class="uploading-overlay" style="display: none">
+  <div class="uploading">
+      <p>Uploading, please wait...</p>
+      <p id="uploadFileName"></p>
+    <!-- <div id="progressBar" class="progress-bar" style="display: none"><div id="uploadingProgress" class="progress" style="width: 0%"></div></div> -->
+  </div>
+</div>
+<div id="movingOverlay" class="uploading-overlay" style="display: none">
+  <div class="uploading">
+      <p>Moving file, please wait...</p>
+  </div>
+</div>
+<div class="header">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default iconview-button" title="Icon View" onclick="iconView()"><i class="fa fa-th"></i></button>
+    <button type="button" class="btn btn-default listview-button" title="List View" onclick="listView()"><i class="fa fa-list"></i></button>
+  </div>
+  <div class="breadcrumbs">
+      Home
+
+  </div>
+  <div class="actions">
+    <a href="https://neocities.org/dashboard#createFile" class="btn-Action" data-toggle="modal"><i class="fa fa-file"></i> New File</a>
+    <a href="https://neocities.org/dashboard#createDir" class="btn-Action" data-toggle="modal"><i class="fa fa-folder"></i> New Folder</a>
+    <a href="https://neocities.org/dashboard#" id="uploadButton" class="btn-Action dz-clickable"><i class="fa fa-arrow-circle-up"></i> Upload</a>
+  </div>
+</div>
+<div class="list">
+  <form action="https://neocities.org/site_files/upload" class="dropzone" id="uploads">
+    <div class="dz-message" style="display: none"></div>
+    <input name="csrf_token" type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=">
+    <input name="dir" type="hidden" value="" id="dir">
+    <div class="upload-Boundary with-instruction">
+        <div class="file filehover">
+            <div class="html-thumbnail folder fileimagehover" ondrop="moveFileToFolder(event)">
+              <div class="folder-icon"></div>
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            emage
+          </a>
+          <div class="column size">
+          </div>
+          <div class="column updated">
+              1 hour ago
+          </div>
+
+          <div class="overlay">
+            <div id="ff2f93757198ee31a9f13aa9f2a04e2f5bf03133b31a80a9973db67f37486d84" style="display: none">emage</div>
+              <a href="https://neocities.org/dashboard?dir=emage"><i class="fa fa-edit" title="Manage"></i> Manage</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#ff2f93757198ee31a9f13aa9f2a04e2f5bf03133b31a80a9973db67f37486d84&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#ff2f93757198ee31a9f13aa9f2a04e2f5bf03133b31a80a9973db67f37486d84&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://neocities.org/dashboard?dir=emage" title="View emage"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail html fileimagehover">
+              <img src="./Neocities - Dashboard_files/index.html.210x158.webp" alt="Website screenshot">
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            index.html
+          </a>
+          <div class="column size">
+              4.76 KB
+          </div>
+          <div class="column updated">
+              2 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="0eb547304658805aad788d320f10bf1f292797b5e6d745a3bf617584da017051" style="display: none">index.html</div>
+              <a href="https://neocities.org/site_files/text_editor?filename=index.html"><i class="fa fa-edit" title="Edit"></i> Edit</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/" title="View index.html" target="_blank"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail misc fileimagehover">
+              <div class="misc-icon">txt</div>
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            Index.html.txt
+          </a>
+          <div class="column size">
+              4.76 KB
+          </div>
+          <div class="column updated">
+              4 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="f7684a394def4fbdb24c1bf3a14a2708a23399f39780fb725cfd22b07c8787ef" style="display: none">Index.html.txt</div>
+              <a href="https://neocities.org/site_files/text_editor?filename=Index.html.txt"><i class="fa fa-edit" title="Edit"></i> Edit</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#f7684a394def4fbdb24c1bf3a14a2708a23399f39780fb725cfd22b07c8787ef&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#f7684a394def4fbdb24c1bf3a14a2708a23399f39780fb725cfd22b07c8787ef&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/Index.html.txt" title="View Index.html.txt" target="_blank"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail misc fileimagehover">
+              <div class="misc-icon">png</div>
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            neocities.png
+          </a>
+          <div class="column size">
+              13.23 KB
+          </div>
+          <div class="column updated">
+              4 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="d8371f735216dc7f11330f179b63a9b0f6a8edf8874e4a3b716b74532fc7716c" style="display: none">neocities.png</div>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#d8371f735216dc7f11330f179b63a9b0f6a8edf8874e4a3b716b74532fc7716c&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#d8371f735216dc7f11330f179b63a9b0f6a8edf8874e4a3b716b74532fc7716c&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/neocities.png" title="View neocities.png" target="_blank"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail html fileimagehover">
+              <img src="./Neocities - Dashboard_files/not_found.html.210x158.webp" alt="Website screenshot">
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            not_found.html
+          </a>
+          <div class="column size">
+              347 B
+          </div>
+          <div class="column updated">
+              4 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="d8f3d382c17c3b3cf96e79a63b527f34a5dd0b565c4f5058493b259c73a5807e" style="display: none">not_found.html</div>
+              <a href="https://neocities.org/site_files/text_editor?filename=not_found.html"><i class="fa fa-edit" title="Edit"></i> Edit</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#d8f3d382c17c3b3cf96e79a63b527f34a5dd0b565c4f5058493b259c73a5807e&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#d8f3d382c17c3b3cf96e79a63b527f34a5dd0b565c4f5058493b259c73a5807e&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/not_found" title="View not_found.html" target="_blank"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail misc fileimagehover">
+              <div class="misc-icon">txt</div>
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            robots.txt
+          </a>
+          <div class="column size">
+              1.34 KB
+          </div>
+          <div class="column updated">
+              4 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="870b1fc137c2af20441f74a26febf99739d79cee1246063e279ca05f288e943c" style="display: none">robots.txt</div>
+              <a href="https://neocities.org/site_files/text_editor?filename=robots.txt"><i class="fa fa-edit" title="Edit"></i> Edit</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#870b1fc137c2af20441f74a26febf99739d79cee1246063e279ca05f288e943c&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#870b1fc137c2af20441f74a26febf99739d79cee1246063e279ca05f288e943c&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/robots.txt" title="View robots.txt" target="_blank"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail misc fileimagehover">
+              <div class="misc-icon">css</div>
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            style.css
+          </a>
+          <div class="column size">
+              298 B
+          </div>
+          <div class="column updated">
+              4 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="b78be019f1dc6d57753ea900c3805b114cd53ab7c0db836cc081836df1b99b7a" style="display: none">style.css</div>
+              <a href="https://neocities.org/site_files/text_editor?filename=style.css"><i class="fa fa-edit" title="Edit"></i> Edit</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#b78be019f1dc6d57753ea900c3805b114cd53ab7c0db836cc081836df1b99b7a&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#b78be019f1dc6d57753ea900c3805b114cd53ab7c0db836cc081836df1b99b7a&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/style.css" title="View style.css" target="_blank"></a>
+          </div>
+        </div>
+        <div class="file filehover">
+            <div class="html-thumbnail html fileimagehover">
+              <img src="./Neocities - Dashboard_files/trott.html.210x158.webp" alt="Website screenshot">
+              <div class="overlay"></div>
+            </div>
+
+          <a class="title">
+            trott.html
+          </a>
+          <div class="column size">
+              4.76 KB
+          </div>
+          <div class="column updated">
+              2 days ago
+          </div>
+
+          <div class="overlay">
+            <div id="bf0beb604ba2d5bfbf6a56ed9211f1a409c60cb32f4fae0d4f8d34faabb23b30" style="display: none">trott.html</div>
+              <a href="https://neocities.org/site_files/text_editor?filename=trott.html"><i class="fa fa-edit" title="Edit"></i> Edit</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileRename($(&#39;#bf0beb604ba2d5bfbf6a56ed9211f1a409c60cb32f4fae0d4f8d34faabb23b30&#39;).text())"><i class="fa fa-file" title="Rename"></i> Rename</a>
+              <a href="https://neocities.org/dashboard#" onclick="confirmFileDelete($(&#39;#bf0beb604ba2d5bfbf6a56ed9211f1a409c60cb32f4fae0d4f8d34faabb23b30&#39;).text())"><i class="fa fa-trash" title="Delete"></i> Delete</a>
+            <a class="link-overlay" href="https://essaipro.neocities.org/trott" title="View trott.html" target="_blank"></a>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+</div>
+
+      <form method="POST" action="https://neocities.org/site_files/delete" id="deleteFilenameForm">
+        <input name="csrf_token" type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=">
+        <input type="hidden" id="deleteFilenameInput" name="filename">
+      </form>
+
+      <div class="modal hide" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-header">
+          <button class="close" type="button" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+          <h3 id="deleteConfirmModalLabel">Confirm deletion</h3>
+        </div>
+        <div class="modal-body">
+          <p>You are about to delete <strong><span id="deleteFileName">Index.html.txt</span></strong>. Are you sure?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn cancel" data-dismiss="modal" aria-hidden="true" type="button">Cancel</button>
+          <button class="btn-Action btn-danger" type="button" onclick="fileDelete()"><i class="fa fa-trash" title="Delete"></i>Delete</button>
+        </div>
+      </div>
+
+      <div class="modal hide" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="renameModalLabel" aria-hidden="true">
+        <form method="post" action="https://neocities.org/site_files/rename">
+          <input type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=" name="csrf_token">
+          <input type="hidden" value="" name="dir">
+          <input type="hidden" id="renamePathInput" name="path">
+
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+            <h3 id="renameModalLabel">Rename / Move</h3>
+          </div>
+          <div class="modal-body">
+            <input id="renameNewPathInput" name="new_path" type="text" style="width: 100%">
+            <p>Note: We will automatically scrub any characters not matching: a-z A-Z 0-9 _ - .</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn cancel" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            <button type="submit" class="btn-Action">Rename</button>
+          </div>
+        </form>
+      </div>
+
+
+<div class="site-actions" style="margin-bottom:25px">
+    <a href="https://neocities.org/site_files/allowed_types">Allowed file types</a> |
+    <a href="https://neocities.org/site_files/download">Download entire site</a> |
+    <a href="https://neocities.org/site_files/mount_info">Mount your site as a drive on your computer</a>
+</div>
+
+</div>
+</main>
+
+<form id="uploadFilesButtonForm" method="POST" action="https://neocities.org/api/upload" enctype="multipart/form-data" style="display: none" onsubmit="event.preventDefault(); showUploadProgress(); uploadFileFromButton();">
+  <input name="csrf_token" type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=">
+  <input name="from_button" type="hidden" value="true">
+  <input name="dir" type="hidden" id="dir" value="">
+  <input id="uploadFiles" type="file" name="file" multiple="">
+</form>
+
+<div class="modal hide" id="createDir" tabindex="-1" role="dialog" aria-labelledby="createDirLabel" aria-hidden="true">
+  <form method="post" action="https://neocities.org/site/create_directory">
+    <input type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=" name="csrf_token">
+    <input type="hidden" value="" name="dir">
+    <div class="modal-header">
+      <button class="close" type="button" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+      <h3 id="createDirLabel">Create Folder</h3>
+    </div>
+    <div class="modal-body">
+      <input id="newDirInput" name="name" type="text" placeholder="folder_name">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn cancel" data-dismiss="modal" aria-hidden="true">Cancel</button>
+      <button type="submit" class="btn-Action">Create</button>
+    </div>
+  </form>
+</div>
+
+<div class="modal hide" id="createFile" tabindex="-1" role="dialog" aria-labelledby="createFileLabel" aria-hidden="true">
+  <form id="createFileForm" onsubmit="return false;">
+    <input type="hidden" value="ihpd28OBk5bTrU851cjfGx0WxHwkLAj4iyEIwa/ZFg0=" name="csrf_token" id="createFileCSRFToken">
+    <input type="hidden" value="" name="dir" id="createFileDir">
+    <div class="modal-header">
+      <button class="close" type="button" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+      <h3 id="createFileLabel">Create New File</h3>
+    </div>
+    <div class="modal-body">
+      <div id="createFileError" class="alert alert-error" style="display: none; margin-bottom: 15px;"></div>
+      <input id="newFileInput" name="filename" type="text" placeholder="newfile.html">
+      <p>Note: We will automatically scrub any characters not matching: a-z A-Z 0-9 _ - .</p>
+      <p>Allowed file types: html, htm, txt, js, css, md, json, xml, py, and others. Must be an editable file type.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn cancel" data-dismiss="modal" aria-hidden="true">Cancel</button>
+      <button type="button" class="btn-Action" onclick="handleCreateFile()">Create</button>
+    </div>
+  </form>
+</div>
+
+<script src="./Neocities - Dashboard_files/dashboard.js.télécharger"></script>
+
+    </div><input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+    <footer class="footer-Base">
+      <aside class="footer-Outro">
+  <div class="footer-Content">
+    <div class="row">
+      <p class="tiny col credits">
+        <a href="https://neocities.org/" title="Neocities.org" style="text-decoration:none;">Neocities</a> is <a href="https://github.com/neocities" title="Neocities on GitHub">open source</a>. Follow us on <a href="https://bsky.app/profile/neocities.org">Bluesky</a>
+      </p>
+      <nav class="footer-Nav col">
+        <ul class="tiny h-Nav">
+          <li><a href="https://neocities.org/about">About</a></li>
+          <li><a href="https://neocities.org/donate">Donate</a></li>
+          <li><a href="https://neocities.org/cli">CLI</a></li>
+            <li><a href="https://blog.neocities.org/">Blog</a></li>
+            <li><a href="https://neocities.org/api">API</a></li>
+            <li><a href="https://neocities.org/press">Press</a></li>
+          <li><a href="http://status.neocitiesops.net/">Status</a></li>
+          <li><a href="https://neocities.org/terms" rel="nofollow">Terms</a></li>
+          <li><a href="https://neocities.org/contact" rel="nofollow">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</aside>
+
+    </footer>
+
+    <script src="./Neocities - Dashboard_files/underscore-min.js.télécharger"></script>
+    <script src="./Neocities - Dashboard_files/nav.min.js.télécharger"></script>
+    <script src="./Neocities - Dashboard_files/bootstrap.min.js.télécharger"></script>
+    <script src="./Neocities - Dashboard_files/typeahead.bundle.js.télécharger"></script>
+    <script src="./Neocities - Dashboard_files/dayjs.min.js.télécharger"></script>
+    
+    <script>
+      $("a#like").tooltip({html: true})
+      $("a.comment_like").tooltip({html: true})
+      $('#shareButton').popover({html: true})
+      $('#tipButton').popover({html: true})
+
+      $('.typeahead').typeahead({
+        minLength: 2,
+        highlight: true
+      }, {
+        name: 'tags',
+        source: function(query, callback) {
+          $.get('/tags/autocomplete/'+query+'.json', function(data) {
+            var suggestions = JSON.parse(data)
+            var suggestionObjects = []
+            for(var i=0; i<suggestions.length; i++)
+              suggestionObjects.push({value: suggestions[i]})
+
+            callback(suggestionObjects)
+          })
+        }
+      }).on('typeahead:selected', function(e) {
+        e.target.form.submit()
+      })
+    </script>
+  
+
+</body></html>
